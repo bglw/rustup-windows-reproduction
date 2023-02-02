@@ -23,6 +23,12 @@ jobs:
             os: windows-latest
             rust: beta
             target: x86_64-pc-windows-msvc
+            update_rustup: true
+          - build: windows
+            os: windows-latest
+            rust: beta
+            target: x86_64-pc-windows-msvc
+            update_rustup: false
 
     steps:
       - name: Checkout repository
@@ -31,6 +37,7 @@ jobs:
           fetch-depth: 1
 
       - name: Update rustup
+        if: matrix.update_rustup
         run: |
           rustup --verbose self update
 
