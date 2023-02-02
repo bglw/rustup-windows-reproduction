@@ -36,6 +36,10 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Log rustup version
+        run: |
+          rustup --version
+
       - name: Update rustup
         if: matrix.update_rustup
         run: |
@@ -45,6 +49,10 @@ jobs:
         run: |
           rustup --verbose install ${{ matrix.rust }}
           rustup --verbose default ${{ matrix.rust }}
+
+      - name: Log rustup version
+        run: |
+          rustup --version
 
       - name: Check versions
         run: |
