@@ -30,6 +30,10 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Update rustup
+        run: |
+          rustup --verbose self update
+
       - name: Install Rust
         run: |
           rustup --verbose install ${{ matrix.rust }}
